@@ -1,5 +1,1 @@
-/*
-!/*.cpp
-!/*.h
-!/.gitignore
-!/makefile
+*.out

@@ -97,6 +97,10 @@ bool operator==(const fraction &a, const fraction &b) {
 	return a.numerator == b.numerator && a.denominator == b.denominator;
 }
 
+bool operator!=(const fraction &a, const fraction &b) {
+	return !(a == b);
+}
+
 bool operator>=(const fraction &a, const fraction &b) {
 	return a > b || a == b;
 }

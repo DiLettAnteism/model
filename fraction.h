@@ -14,6 +14,7 @@ public:
 	friend bool operator>=(const fraction &a, const fraction &b);
 	friend bool operator<=(const fraction &a, const fraction &b);
 	friend bool operator==(const fraction &a, const fraction &b);
+	friend bool operator!=(const fraction &a, const fraction &b);
 	friend std::ostream& operator<<(std::ostream &output, const fraction &a);
 	friend std::istream& operator>>(std::istream &input, const fraction &a);
 

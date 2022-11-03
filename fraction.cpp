@@ -1,6 +1,7 @@
 #include "fraction.h"
 #include <algorithm>
 #include <iostream>
+#include <string>
 
 fraction::fraction(): positive(true), numerator(0), denominator(1) {}
 
@@ -110,16 +111,23 @@ bool operator<=(const fraction &a, const fraction &b) {
 }
 
 std::ostream& operator<<(std::ostream &output, const fraction &a) {
+	std::string s;
 	if (a.numerator == 0) {
-		output << 0;
+		s.push_back('0');
+		output << s;
 		return output;
 	}
-	if (!a.positive) output << "-";
+	if (!a.positive) {
+		s.push_back('-');
+	}
 	if (a.denominator == 1) {
-		output << a.numerator;
-		return output;
+		s.append(std::to_string(a.numerator));
+	} else {
+		s.append(std::to_string(a.numerator));
+		s.append("/");
+		s.append(std::to_string(a.denominator));
 	}
-	output << a.numerator << "/" << a.denominator;
+	output << s;
 	return output;
 }
 

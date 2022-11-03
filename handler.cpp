@@ -1,23 +1,31 @@
 #include "handler.h"
 #include <iostream>
-using std::cout;
+#include <iomanip>
+#include <string>
+using namespace std;
 
 void print(const vector<vector<fraction>> &table, int row, int col, const vector<int> &XB, char var0, char var1) {
-	cout << "\t\t\t";
+	cout << right << setw(8) << "|" << right << setw(8) << "|" << right << setw(8) << "|";
 	for (int i = 1; i <= col; ++i) {
-		cout << table[0][i] << "\t";
+		cout << right << setw(8) << table[0][i];
 	}
 	cout << "\n";
-	cout << "\t\tb\t";
+	cout << right << setw(8) << "|" << right << setw(8) << "|" << right << setw(8) << "b";
 	for (int i = 1; i <= col; ++i) {
-		cout << var1 << i << "\t";
+		string var;
+		var.push_back(var1);
+		var.append(to_string(i));
+		cout << right << setw(8) << var;
 	}
 	cout << "\n";
 	for (int i = 1; i <= row; ++i) {
-		cout << table[0][XB[i]] << "\t";
-		cout << var1 << XB[i] << "\t";
+		string var;
+		var.push_back(var1);
+		var.append(to_string(XB[i]));
+		cout << right << setw(8) << table[0][XB[i]];
+		cout << right << setw(8) << var;
 		for (int j = 0; j <= col; ++j) {
-			cout << table[i][j] << "\t";
+			cout << right << setw(8) << table[i][j];
 		}
 		cout << "\n";
 	}
